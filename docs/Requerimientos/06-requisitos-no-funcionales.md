@@ -1,118 +1,65 @@
-# 3.3 Requisitos no funcionales
+3.3.5 Mantenibilidad
 
-## 3.3.1 Requisitos de rendimiento
+El sistema deberá estar diseñado y estructurado de forma modular y documentada para facilitar su soporte, corrección de incidentes, actualización de componentes y adaptación a futuras normativas de la Fiscalía General del Estado de Yucatán, minimizando el impacto en la operación continua.
 
-El sistema deberá proporcionar un tiempo de respuesta adecuado para permitir que los servidores públicos puedan realizar las evaluaciones y autoevaluaciones sin interrupciones durante el periodo establecido.
+Los requisitos de mantenibilidad serán los siguientes:
 
-Los requisitos de rendimiento serán los siguientes:
+Identificación de los tipos de mantenimiento.
 
-- El sistema deberá permitir el acceso simultáneo de los usuarios autorizados conectados a la red institucional de la Fiscalía General del Estado de Yucatán.
-- El sistema deberá procesar el inicio de sesión y mostrar el resultado de la autenticación en un tiempo máximo de 3 segundos, siempre que la infraestructura de red y el servidor se encuentren disponibles.
-- El sistema deberá mostrar las páginas de evaluación y autoevaluación en un tiempo máximo de 3 segundos después de que el usuario solicite su acceso, bajo condiciones normales de operación.
-- El registro de una respuesta deberá completarse en un tiempo máximo de 3 segundos después de que el usuario confirme la operación, siempre que exista disponibilidad de la conexión con el servidor.
-- El sistema deberá generar la consulta de resultados en un tiempo máximo de 5 segundos para consultas que no requieran procesar un volumen extraordinario de información.
-- La generación de reportes en PDF o Excel deberá completarse en un tiempo máximo de 10 segundos para una consulta correspondiente a un proceso de evaluación.
-- El sistema deberá permitir que los usuarios continúen con el proceso de evaluación dentro del periodo establecido sin que sea necesario mantener una sesión activa durante todo el periodo de 30 días.
-- El sistema deberá mantener el rendimiento requerido durante el periodo de aplicación de las evaluaciones y autoevaluaciones.
-- La cantidad máxima de usuarios conectados simultáneamente deberá ser determinada de acuerdo con el número de servidores públicos que participen en cada proceso de evaluación y con la capacidad de la infraestructura tecnológica proporcionada por la Fiscalía.
+Mantenimiento correctivo: El sistema deberá facilitar la detección, diagnóstico y resolución de errores imprevistos en la lógica de negocio o en el almacenamiento de datos, permitiendo desplegar parches de corrección en un plazo máximo de 24 horas tras la notificación de un fallo crítico reportado durante el periodo de evaluación.
 
-## 3.3.2 Seguridad
+Mantenimiento preventivo: El sistema deberá permitir la depuración de archivos temporales, la revisión de bitácoras de auditoría y la optimización de índices de bases de datos de forma periódica para asegurar el rendimiento continuo.
 
-El sistema deberá implementar mecanismos de seguridad que permitan proteger la información de los usuarios, las evaluaciones, las autoevaluaciones y los resultados obtenidos, evitando accesos no autorizados, modificaciones accidentales o maliciosas y pérdida de información.
+Mantenimiento adaptativo y evolutivo: La arquitectura del sistema deberá permitir la incorporación de nuevas métricas de desempeño, adecuación a reformas en el Reglamento del Servicio Profesional de Carrera y la integración de nuevos catálogos de puestos o departamentos sin requerir una reestructuración completa del código fuente.
 
-Los requisitos de seguridad serán los siguientes:
+Roles y responsabilidades de mantenimiento.
 
-**Autenticación de usuarios.**
+Equipo de desarrollo / Soporte TI especializado: Será el responsable exclusivo de la modificación del código fuente, aplicación de parches de seguridad, optimización de consultas a la base de datos, actualización de librerías dependientes y ejecución de respaldos a nivel servidor.
 
-El sistema deberá requerir un nombre de usuario y contraseña para permitir el acceso a las funciones del sistema.
+Administrador del sistema (Dirección de Administración / TI interna): Podrá ejecutar tareas de mantenimiento operativo y de configuración sin tocar código, tales como la activación/desactivación de periodos de evaluación, gestión de roles de usuarios, asignación de dependencias jerárquicas y parametrización de catálogos institucionales.
 
-**Control de acceso.**
+Usuarios finales (servidores públicos y evaluadores): No intervendrán en tareas técnicas; su responsabilidad se limitará a la notificación de inconsistencias mediante los canales de soporte establecidos por la institución.
 
-El sistema deberá asignar permisos de acuerdo con el tipo de usuario. La Directora de Administración tendrá acceso a las funciones administrativas y a los resultados, mientras que los demás usuarios únicamente podrán acceder a las evaluaciones y autoevaluaciones que les correspondan.
+Periodicidad y ventanas de mantenimiento.
 
-**Protección de resultados.**
+Tareas semanales: Generación y revisión de bitácoras de errores, monitoreo de cuotas de almacenamiento e inspección del estado de los servicios del servidor.
 
-Los resultados de las evaluaciones deberán mantenerse privados y no deberán estar disponibles para usuarios que no cuenten con los permisos correspondientes.
+Tareas mensuales: Generación y análisis de estadísticas de acceso, evaluación de tiempos de respuesta en reportes y revisión de la integridad de los respaldos automatizados.
 
-**Restricción de acceso por red.**
+Ventanas de mantenimiento programado: Las labores de mantenimiento que requieran la suspensión temporal del servicio deberán ejecutarse fuera del horario laboral y fuera de los 30 días fijados para la aplicación de evaluaciones (preferentemente en fines de semana o turnos nocturnos, con previo aviso institucional de al menos 48 horas).
 
-El sistema deberá permitir el acceso únicamente desde equipos conectados a la red institucional de la Fiscalía General del Estado de Yucatán.
+Estándares de modularidad y documentación técnica.
 
-**Protección de las evaluaciones finalizadas.**
+El código fuente deberá organizarse bajo una arquitectura en capas o modular que desacople la interfaz de usuario, la lógica de negocio y el acceso a datos.
 
-Una vez que una evaluación o autoevaluación haya sido enviada y registrada correctamente, el sistema deberá impedir que el usuario vuelva a modificar sus respuestas.
+El sistema deberá contar con manuales técnicos actualizados (arquitectura, diccionario de datos, procedimientos de despliegue) y manuales de usuario dirigidos a evaluadores y administradores.
 
-**Validación de datos.**
+El código deberá incluir comentarios técnicos claros en módulos críticos y apegarse a convenciones estándar de desarrollo para reducir la curva de aprendizaje de futuros desarrolladores.
 
-El sistema deberá validar la información proporcionada por los usuarios antes de almacenarla, con el propósito de evitar registros incompletos o con formatos no válidos.
+3.3.6 Portabilidad
 
-**Protección contra accesos no autorizados.**
+El sistema deberá contar con una arquitectura web desacoplada y estandarizada que garantice su correcta visualización, ejecución y posible migración entre diferentes entornos tecnológicos, servidores y navegadores web empleados dentro de la infraestructura de la Fiscalía General del Estado de Yucatán.
 
-El sistema deberá impedir que un usuario acceda directamente a funciones o información que no correspondan a sus permisos.
+Los requisitos de portabilidad serán los siguientes:
 
-**Integridad de la información.**
+Compatibilidad en el lado del cliente (Navegadores y dispositivos).
 
-El sistema deberá mantener la integridad de los registros almacenados, evitando que las operaciones realizadas por los usuarios modifiquen o eliminen información para la cual no cuentan con autorización.
+El sistema deberá operar y renderizarse de manera uniforme en los navegadores web modernos más utilizados en las estaciones de trabajo institucionales (Google Chrome, Microsoft Edge, Mozilla Firefox) en sus versiones vigentes o con hasta 2 versiones anteriores de soporte.
 
-**Respaldo de información.**
+La interfaz de usuario deberá basarse en estándares web abiertos (HTML5, CSS3 y JavaScript moderno), evitando el uso de extensiones propietarias o plugins de terceros que requieran instalación local en los equipos de los servidores públicos.
 
-La información correspondiente a las evaluaciones y autoevaluaciones deberá conservarse en el servidor institucional, de acuerdo con las políticas de respaldo y conservación de información establecidas por la Fiscalía.
+El diseño de la interfaz deberá ser responsivo (responsive design), adaptándose a resoluciones de pantalla estándar de equipos de escritorio y computadoras portátiles institucionales (resoluciones mínimas de 1366x768 píxeles).
 
-**Cumplimiento de disposiciones institucionales.**
+Independencia y portabilidad en el lado del servidor.
 
-Las medidas de seguridad implementadas deberán considerar el Aviso de Privacidad, el Reglamento del Servicio Profesional de Carrera y el Reglamento Interior de la Fiscalía General del Estado de Yucatán, en lo que resulte aplicable.
+Porcentaje de código dependiente de plataforma: Al menos el 90 % del código del sistema (lógica de negocio e interfaz) deberá ser agnóstico del sistema operativo anfitrión, permitiendo su ejecución tanto en entornos basados en Linux (como Ubuntu Server o Red Hat Enterprise Linux) como en entornos Windows Server.
 
-## 3.3.3 Fiabilidad
+Dependencia de la base de datos: El acceso a la capa de persistencia deberá utilizar controladores o capas de abstracción estándar (como PDO u ORM/Query Builders estándar), de modo que los esquemas de bases de datos relacionales puedan migrarse entre motores compatibles (como MySQL o MariaDB) sin reescribir la lógica de la aplicación.
 
-El sistema deberá funcionar de manera estable y consistente durante el periodo de aplicación de las evaluaciones y autoevaluaciones, procurando que los errores o fallos del sistema no ocasionen pérdida de información registrada por los usuarios.
+Plataforma y lenguaje de desarrollo: El desarrollo deberá apoyarse en un entorno multiplataforma ampliamente soportado y mantenido (como PHP/Node.js/Python bajo arquitecturas MVC estándar), asegurando que las dependencias externas se gestionen mediante administradores de paquetes estándar de la industria.
 
-Los requisitos de fiabilidad serán los siguientes:
+Facilidad de despliegue y traslado de entornos.
 
-- El sistema deberá conservar las respuestas que hayan sido registradas correctamente, incluso cuando posteriormente se presente un error en la aplicación.
-- El sistema deberá informar al usuario cuando una operación no pueda completarse correctamente, evitando mostrar como registrada una información que no haya sido almacenada.
-- En caso de producirse un error durante el registro de una evaluación o autoevaluación, el sistema deberá permitir al usuario volver a intentar la operación sin duplicar las respuestas previamente almacenadas.
-- El sistema deberá impedir la duplicación de una evaluación o autoevaluación que haya sido registrada correctamente.
-- El sistema deberá mantener disponibles los registros históricos de las evaluaciones realizadas desde la puesta en funcionamiento del sistema.
-- Ante una interrupción temporal de comunicación con el servidor, el sistema deberá mostrar un mensaje informando al usuario que la operación no pudo completarse y deberá evitar la pérdida de información previamente almacenada.
-- El sistema deberá garantizar que las evaluaciones y autoevaluaciones registradas correctamente puedan ser consultadas posteriormente por el usuario autorizado.
-- El sistema deberá tener una disponibilidad mínima del 99 % durante el periodo establecido para la aplicación de las evaluaciones, excluyendo los periodos de mantenimiento programado.
-- El sistema deberá recuperarse de una interrupción del servicio y volver a estar disponible en un tiempo máximo de 30 minutos, siempre que la infraestructura del servidor y de la red institucional se encuentren operativas.
+La configuración del entorno (credenciales de base de datos, rutas de archivos institucionales, llaves de cifrado) deberá manejarse a través de variables de entorno desacopladas del código base, facilitando el cambio entre entornos de desarrollo, pruebas y producción.
 
-## 3.3.4 Disponibilidad
-
-El sistema deberá mantenerse disponible para los usuarios autorizados durante el periodo establecido por la Fiscalía General del Estado de Yucatán para la realización de las evaluaciones y autoevaluaciones.
-
-Los requisitos de disponibilidad serán los siguientes:
-
-- El sistema deberá presentar una disponibilidad mínima del 99 % durante el periodo de aplicación de las evaluaciones y autoevaluaciones, excluyendo los periodos de mantenimiento programado previamente establecidos.
-- El sistema deberá estar disponible durante el horario de operación definido por la Fiscalía General del Estado de Yucatán.
-- Los periodos de mantenimiento programado deberán realizarse, preferentemente, fuera del horario establecido para la aplicación de las evaluaciones, con el propósito de reducir la afectación a los usuarios.
-- En caso de presentarse una interrupción inesperada del servicio, el sistema deberá restablecer su funcionamiento en un periodo máximo de 30 minutos, siempre que la interrupción corresponda al sistema y no a una falla externa de la infraestructura de red o del servidor institucional.
-- El sistema deberá informar al usuario cuando el servicio no se encuentre disponible y evitar que una operación incompleta sea registrada como exitosa.
-- La disponibilidad del sistema deberá poder verificarse mediante los registros de funcionamiento correspondientes durante el periodo de aplicación.
-
-**Criterio de aceptación:**
-
-Se considerará que el requisito se cumple cuando el sistema mantenga una disponibilidad igual o superior al 99 % durante el periodo de aplicación, sin considerar los periodos de mantenimiento programado.
-
-## 3.3.5 Mantenibilidad
-
-[Inserte aquí el texto]
-
-> Identificación del tipo de mantenimiento necesario del sistema.
->
-> Especificación de quien debe realizar las tareas de mantenimiento, por ejemplo usuarios, o un desarrollador.
->
-> Especificación de cuando debe realizarse las tareas de mantenimiento. Por ejemplo, generación de estadísticas de acceso semanales y mensuales.
-
-## 3.3.6 Portabilidad
-
-[Inserte aquí el texto]
-
-> Especificación de atributos que debe presentar el software para facilitar su traslado a otras plataformas u entornos. Pueden incluirse:
-
-- *Porcentaje de componentes dependientes del servidor.*
-- *Porcentaje de código dependiente del servidor.*
-- *Uso de un determinado lenguaje por su portabilidad.*
-- *Uso de un determinado compilador o plataforma de desarrollo.*
-- *Uso de un determinado sistema operativo.*
+El sistema deberá estar preparado para su contenedorización (por ejemplo, mediante Docker) o empaquetamiento estándar, lo que permitirá transferir la solución completa entre servidores locales de la Fiscalía o hacia esquemas de nube privada gubernamental con un esfuerzo de reconfiguración mínimo.
