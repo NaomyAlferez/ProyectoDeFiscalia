@@ -17,12 +17,21 @@ classDiagram
         +iniciarSesion()
         +cerrarSesion()
         +recuperarContrasena()
+        +validarAntigüedad()
     }
     class Administrador {
         +registrarUsuario()
         +modificarUsuario()
         +eliminarUsuario()
         +establecerPeriodoEvaluacion()
+    }
+    class DirectoraAdministracion {
+        +consultarResultados()
+        +generarReporte()
+    }
+    class ServidorPublico {
+        +realizarAutoevaluacion()
+        +consultarEvaluacionPropia()
     }
     class Evaluacion {
         -idEvaluacion
@@ -47,6 +56,7 @@ classDiagram
         -descripcion
         -criterio
         -calificacion
+        -ponderacion
     }
     class Respuesta {
         -idRespuesta
@@ -64,9 +74,12 @@ classDiagram
     }
 
     Usuario <|-- Administrador
-    Usuario "1" -- "*" Evaluacion : realiza
+    Usuario <|-- DirectoraAdministracion
+    Usuario <|-- ServidorPublico
+    Usuario "1" -- "*" Evaluacion : emite
+    Usuario "1" -- "*" Evaluacion : recibe
     PeriodoEvaluacion "1" -- "*" Evaluacion : rige
     Evaluacion "1" *-- "*" Indicador : contiene
     Indicador "1" -- "1" Respuesta : recibe
-    Administrador "1" -- "*" Reporte : genera
+    DirectoraAdministracion "1" -- "*" Reporte : genera
 ```
