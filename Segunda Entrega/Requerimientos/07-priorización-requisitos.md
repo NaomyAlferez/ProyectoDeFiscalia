@@ -2,9 +2,9 @@
 
 Propuesta de priorización basada en la metodología MoSCoW para asegurar el desarrollo incremental y estructurado del sistema:
 
-* 🟢 Verde: Requisitos críticos que forman el núcleo operativo y sin los cuales el sistema no puede funcionar.
-* 🟡 Amarillo: Requisitos necesarios para completar el flujo operativo normal, pero que dependen del núcleo.
-* 🔴 Rojo: Funcionalidades secundarias o de conveniencia que pueden implementarse en fases posteriores si el tiempo lo permite.
+- 🟢 Verde: Requisitos críticos que forman el núcleo operativo y sin los cuales el sistema no puede funcionar.
+- 🟡 Amarillo: Requisitos necesarios para completar el flujo operativo normal, pero que dependen del núcleo.
+- 🔴 Rojo: Funcionalidades secundarias o de conveniencia que pueden implementarse en fases posteriores si el tiempo lo permite.
 
 ---
 
