@@ -10,9 +10,9 @@
 
 El equipo se reunió el día **martes 3 de noviembre** con el objetivo de dar inicio formal a las actividades correspondientes a la Tercera Entrega del proyecto. 
 
-Durante la sesión, se realizó una retrospectiva sincera sobre el desempeño en la **Segunda Entrega**, reconociendo que fue una etapa complicada debido a diversos contratiempos y errores de coordinación interna. A raíz de este análisis, el equipo tomó la decisión unánime de realizar un **cambio en el liderazgo** para optimizar la comunicación y el seguimiento de las tareas: nuestra compañera **Naomy Alférez** cedió la estafeta del liderazgo a nuestra compañera **Alejandra Aguilar**.
+Durante la sesión, se realizó una retrospectiva sincera sobre el desempeño en la **Segunda Entrega**, reconociendo que fue una etapa complicada debido a diversos contratiempos y errores de coordinación interna. A raíz de este análisis, el equipo se organizó para optimizar la comunicación y el seguimiento de las tareas.
 
-Bajo esta nueva dirección, Alejandra estructuró un plan de trabajo detallado dividido en 4 Sprints semanales, asignando responsables, indicadores de evaluación y puntajes claros para asegurar el cumplimiento en tiempo y forma de todos los artefactos y el código del sistema.
+Bajo esta nueva organización, se estructuró un plan de trabajo detallado dividido en 4 Sprints semanales, asignando responsables, indicadores de evaluación y puntajes claros para asegurar el cumplimiento en tiempo y forma de todos los artefactos y el código del sistema.
 
 ---
 
@@ -76,4 +76,4 @@ A continuación, se detalla la organización acordada para toda la Tercera Entre
 
 ## 4. Expectativas para el Siguiente Sprint
 
-Para el **Sprint 2** (enfocado en la fase de implementación), el equipo espera encontrarse **completamente adaptado** a esta nueva estructura de organización y liderazgo. Con los roles claros, los artefactos base refinados y el flujo de trabajo en GitHub definido, proyectamos mantener una comunicación fluida y evitar los contratiempos presentados en la entrega anterior.
+Para el **Sprint 2** (enfocado en la fase de implementación), el equipo espera encontrarse **completamente adaptado** a esta nueva estructura de organización. Con los roles claros, los artefactos base refinados y el flujo de trabajo en GitHub definido, proyectamos mantener una comunicación fluida y evitar los contratiempos presentados en la entrega anterior.
